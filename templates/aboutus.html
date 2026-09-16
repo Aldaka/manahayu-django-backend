@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% load static tailwind_tags %}
+{% block konten %}
+<title>{{title}}</title>
+{% tailwind_css %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="{% static 'output.css' %}">
+</head>
+<body class="overflow-x-hidden bg-white font-primary">
+
+  <!-- Header -->
+  <div id="header-container"></div>
+
+  <!-- About Us -->
+  <section id="About us" class="px-6 py-16 md:px-20 md:py-24">
+    <div class="mx-auto mt-16 mb-5 text-center">
+      <h2 class="mb-6 text-3xl font-semibold font-secondary text-primary md:text-4xl">
+        Manahayu Holistic Farm
+      </h2>
+    </div>
+    <p class="mb-20 text-center text-primary-500">
+      Discover tranquility at Ngopi a sanctuary for unwinding,<br class="hidden md:block">
+      where your evenings are perfected with relaxation and rich flavors.
+    </p>
+
+    <div class="flex flex-col w-full gap-6 sm:flex-row sm:justify-center">
+      <img src="{% static 'img/kopicangkir.jpg' %}"
+        alt="coffee1"
+        class="object-cover w-full h-120 sm:w-1/2 rounded-bl-[80px] rounded-br-[5px] rounded-tl-[5px] rounded-tr-[80px] transition-transform duration-300 sm:-translate-y-4 shadow-md" />
+      <img src="{% static 'img/kopicangkir.jpg' %}"
+        alt="coffee2"
+        class="object-cover w-full h-120 sm:w-1/2 rounded-br-[80px] rounded-bl-[5px] rounded-tr-[5px] rounded-tl-[80px] transition-transform duration-300 sm:-translate-y-4 shadow-md" />
+      <img src="{% static 'img/kopicangkir.jpg' %}"
+        alt="coffee1"
+        class="object-cover w-full h-120 sm:w-1/2 rounded-bl-[80px] rounded-br-[5px] rounded-tl-[5px] rounded-tr-[80px] transition-transform duration-300 sm:-translate-y-4 shadow-md" />
+    </div>
+
+    <div class="mt-48">
+      <div class="flex flex-col items-center gap-20 md:grid md:grid-cols-2">
+        <div class="text-primary">
+          <p class="mb-6">
+            Body text for your whole article or post. We’ll put in some lorem ipsum to show how a filled-out page might look:
+          </p>
+          <p class="mb-6">
+            Excepteur efficient emerging, minim veniam anim aute carefully curated Ginza conversation exquisite perfect nostrud nisi intricate Content. Qui  international first-class nulla ut. Punctual adipisicing, essential
+            lovely queen tempor eiusmod irure. Exclusive izakaya charming Scandinavian impeccable aute quality of life soft power pariatur Melbourne occaecat discerning. Qui wardrobe aliquip, et Porter
+            destination Toto remarkable officia Helsinki excepteur Basset hound. Zürich sleepy perfect consectetur.
+          </p>
+          <p class="mb-8">
+            Exquisite sophisticated iconic cutting-edge laborum deserunt Addis Ababa esse bureaux cupidatat id minim. Sharp classic the best commodo nostrud delightful.
+            Conversation aute Rochester id. Qui sunt remarkable deserunt intricate airport handsome K-pop excepteur classic esse Asia-Pacific laboris.
+          </p>
+        </div>
+
+        <div class="flex justify-center">
+          <img src="{% static 'img/kopicangkir.jpg' %}"
+            alt="coffee2"
+            class="object-cover w-128 h-120 rounded-br-[90px] rounded-bl-[5px] rounded-tr-[5px] rounded-tl-[90px]" />
+        </div>
+      </div>
+    </div>
+
+      <div class="mt-48">
+        <div class="flex flex-col-reverse items-center gap-20 md:grid md:grid-cols-2">
+          <div class="flex flex-col w-full gap-6 sm:flex-row sm:justify-center">
+            <img src="https://png.pngtree.com/thumb_back/fh260/background/20210911/pngtree-coffee-drink-coffee-beans-scattered-on-the-table-image_857185.jpg"
+                 alt="coffee1"
+                 class="object-cover w-full sm:w-1/2 h-64 md:h-72 rounded-bl-[60px] rounded-br-[5px] rounded-tl-[5px] rounded-tr-[60px] transition-transform duration-300 hover:scale-105 sm:-translate-y-4 shadow-md" />
+            <img src="{% static 'img/kopicangkir.jpg' %}"
+                 alt="coffee2"
+                 class="object-cover w-full sm:w-1/2 h-64 md:h-72 rounded-br-[60px] rounded-bl-[5px] rounded-tr-[5px] rounded-tl-[60px] transition-transform duration-300 hover:scale-105 sm:translate-y-4 shadow-md" />
+          </div>
+          
+          <div class="text-primary">
+            <p class="mb-6">
+              Excepteur efficient emerging, minim veniam anim cloying aute carefully curated gauche. Espresso exquisite perfect nostrud nisi intricate.
+              Punctual adipisicing Borzoi, essential lovely tempor eiusmod irure. Exclusive izakaya charming Quezon City impeccable aute quality of
+              life soft power pariatur occaecat discerning. Qui wardrobe aliquip, et Amadeus rock opera.
+            </p>
+            <p class="mb-6">
+              Exquisite sophisticated iconic cutting-edge laborum deserunt esse bureaux cupidatat id minim. Sharp classic the best commodo
+              nostrud delightful. Conversation aute wifey id. Qui sunt remarkable deserunt intricate airport excepteur classic esse riot girl.
+            </p>
+          </div>
+        </div>
+      </div>
+  </section>
+     
+  <div id="footer-container"></div>
+  <script src="{% static 'script.js' %}"></script>
+</body>
+</html>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+/* static/css/custom_admin.css */
+.custom-file-input {
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
+
+.custom-file-input:focus {
+    outline: none;
+    border-color: #0066cc;
+}
+
+.custom-file-input::-webkit-file-upload-button {
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.custom-file-input::-webkit-file-upload-button:active {
+    background-color: #0055bb;
+}
+
+.custom-file-input::before {
+    content: 'Choose file...';
+    color: #666;
+    font-size: 14px;
+}

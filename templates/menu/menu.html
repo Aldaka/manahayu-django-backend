@@ -1,0 +1,290 @@
+{% extends "base.html" %}
+{% load static tailwind_tags %}
+{% block konten %}
+<title>{{ title }}</title>
+{% tailwind_css %}
+
+<body class="overflow-x-hidden bg-white font-primary">
+
+  <!-- Hero -->
+  <section id="Hero" class="relative w-full h-screen overflow-hidden bg-cover bg-center rounded-br-[80px]">
+    <div class="absolute inset-0">
+      <img src="{% static 'img/HeroSection.png' %}" alt="hero-image" class="object-cover w-full h-full" />
+      <div class="absolute inset-0 bg-black/45"></div>
+    </div>
+    <div class="relative z-10 flex flex-col items-start justify-center h-full max-w-6xl px-6 mx-auto md:px-12 text-secondary">
+      <h2 class="mb-4 text-4xl font-bold leading-tight md:text-5xl font-secondary">
+        Enjoy Your Favorite <br>Menu in Manahayu
+      </h2>
+      <p class="mb-6 text-sm font-semibold leading-relaxed md:text-base font-primary">
+        Lorem ipsum dolor sit amet consectetur adipiscing elit mattis et<br class="hidden md:block">
+        phasellus mollis sit aliquam sit nullam neque ultrices.
+      </p>
+    </div>
+  </section>
+
+  <!-- Menu Section -->
+  <section id="Menu" class="px-6 py-16 bg-white md:px-20 md:py-24">
+    <div class="flex justify-center">
+      <div id="categoryButtons" class="flex flex-wrap justify-center w-full max-w-md gap-2 p-1 mb-8 bg-gray-100 rounded-full sm:gap-4">
+        <button onclick="setActiveCategory(this, 'all')" class="px-3 py-1.5 text-xs sm:text-sm font-medium text-white rounded-full shadow bg-secondary category-btn">
+          All
+        </button>
+        <button onclick="setActiveCategory(this, 'makanan')" class="px-3 py-1.5 text-xs sm:text-sm font-medium text-gray-500 transition rounded-full category-btn">
+          Makanan
+        </button>
+        <button onclick="setActiveCategory(this, 'minuman')" class="px-3 py-1.5 text-xs sm:text-sm font-medium text-gray-500 transition rounded-full category-btn">
+          Minuman
+        </button>
+        <button onclick="setActiveCategory(this, 'snack')" class="px-3 py-1.5 text-xs sm:text-sm font-medium text-gray-500 transition rounded-full category-btn">
+          Snack
+        </button>
+      </div>
+    </div>
+
+    
+    <div class="mx-auto text-center max-w-7xl">
+      <p class="mb-2 text-sm text-empat font-primary">Menu</p>
+      <h2 class="mb-4 text-3xl font-semibold font-secondary text-primary md:text-4xl">
+        From Top Quality Materials
+      </h2>
+      <p class="max-w-3xl mx-auto mb-10 text-base text-primary font-primary">
+        Enjoy our carefully curated menu with ingredients from sustainable farming,<br class="hidden md:block">
+        crafted with care to delight your senses.
+      </p>
+    {% comment %} <section id="image">  
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {% for item in menus %}
+        <div class="flex flex-col overflow-hidden rounded-tr-[60px] rounded-tl-[5px] rounded-b-[5px] outline-1 outline-gray-300 outline-solid" data-category="{{ item.categories.first.name|default:'all'|lower }}">
+          {% if item.image %}
+          <img src="{{ item.image.url }}" alt="{{ item.name }}" class="object-cover rounded-tr-[60px] rounded-bl-[60px] w-full h-56" />
+          {% else %}
+          <img src="https://via.placeholder.com/300x200?text=No+Image" alt="No Image" class="object-cover rounded-tr-[60px] rounded-bl-[60px] w-full h-56" />
+          {% endif %}
+          <div class="flex flex-col justify-between flex-1 p-5 text-primary font-primary">
+            <div>
+              <h3 class="mb-2 text-lg font-semibold text-left">{{ item.name }}</h3>
+
+              <p class="text-sm text-left leading-relaxed">
+                {{ item.description }}
+              </p>
+            </div>
+            <div class="flex items-center justify-between mt-4">
+              <p class="text-base font-bold">Rp. {{ item.price|floatformat:0 }}</p>
+              <button class="px-5 py-1 text-lg font-bold text-white transition-transform duration-300 rounded-md bg-secondary hover:scale-105">+</button>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="flex justify-center mt-10">
+        <div class="inline-flex space-x-2">
+          {% if menus.has_previous %}
+            <a href="?page={{ menus.previous_page_number }}" class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300">Prev</a>
+          {% endif %}
+          <span class="px-4 py-2 bg-gray-100 rounded">{{ menus.number }} / {{ menus.paginator.num_pages }}</span>
+          {% if menus.has_next %}
+            <a href="?page={{ menus.next_page_number }}" class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300">Next</a>
+          {% endif %}
+        </div>
+      </div>
+    </section> {% endcomment %}
+
+    <!-- Yang utama ini jangan dihapus -->
+  
+ <section id="image">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {% for item in menus %}
+          <div class="menu-carousel flex flex-col overflow-hidden rounded-tr-[60px] rounded-tl-[5px] rounded-b-[5px] outline-1 outline-gray-300 outline-solid" 
+               data-category="{{ item.categories.first.name|default:'all'|lower }}">
+            
+            <div class="relative w-full h-56 overflow-hidden">
+              
+              {% if item.images.all %}
+                <div id="track-{{ item.id }}" class="flex h-full transition-transform duration-500 ease-in-out">
+                  {% for image_obj in item.images.all %}
+                    <img src="{{ image_obj.image.url }}" alt="{{ item.name }}" 
+                         class="w-full h-full object-cover flex-shrink-0">
+                  {% endfor %}
+                </div>
+    
+                {% if item.images.all|length > 1 %}
+                  <button class="prev-slide absolute z-10 text-2xl font-bold text-white transition transform -translate-y-1/2 rounded-full left-2 top-1/2 bg-black/40 hover:bg-black/60 w-8 h-8 flex items-center justify-center">❮</button>
+                  <button class="next-slide absolute z-10 text-2xl font-bold text-white transition transform -translate-y-1/2 rounded-full right-2 top-1/2 bg-black/40 hover:bg-black/60 w-8 h-8 flex items-center justify-center">❯</button>
+                {% endif %}
+    
+                {% if item.images.all|length > 1 %}
+                  <div class="absolute bottom-3 left-0 right-0 z-10 flex justify-center space-x-1.5">
+                    {% for image_obj in item.images.all %}
+                      <span class="menu-indicator block w-2 h-2 rounded-full transition-colors 
+                                   {% if forloop.first %}bg-white{% else %}bg-white/50{% endif %}">
+                      </span>
+                    {% endfor %}
+                  </div>
+                {% endif %}
+    
+              {% else %}
+                <img src="{% static 'img/placeholder_image.jpg' %}" alt="No Image" class="w-full h-56 object-cover rounded-tr-[60px] rounded-bl-[60px]" />
+              {% endif %}
+            </div>
+            
+            <div class="flex flex-col justify-between flex-1 p-5 text-primary font-primary">
+              <div>
+                <h3 class="mb-2 text-lg font-semibold text-left">{{ item.name }}</h3>
+                <p class="text-base text-left leading relaxed font-bold">Rp. {{ item.price|floatformat:0 }}</p>
+              </div>
+              <div class="flex items-center justify-between mt-4">
+                <p class="text-sm text-left leading-relaxed">{{ item.description|truncatechars:150 }}</p>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+   </section>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+      <div class="flex justify-center mt-10">
+        <div class="inline-flex space-x-2">
+          {% if menus.has_previous %}
+            <a href="?page={{ menus.previous_page_number }}" class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300">Prev</a>
+          {% endif %}
+          <span class="px-4 py-2 bg-gray-100 rounded">{{ menus.number }} / {{ menus.paginator.num_pages }}</span>
+          {% if menus.has_next %}
+            <a href="?page={{ menus.next_page_number }}" class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300">Next</a>
+          {% endif %}
+        </div>
+      </div>
+
+
+
+    </div>
+  </section>
+</body>
+<script >
+  // Jalankan script setelah seluruh dokumen HTML selesai dimuat
+document.addEventListener("DOMContentLoaded", function () {
+    
+  // Temukan semua elemen carousel di halaman
+  const carousels = document.querySelectorAll('.menu-carousel');
+  
+  // Lakukan setup untuk setiap carousel satu per satu
+  carousels.forEach(function(carousel) {
+    
+    // Temukan elemen-elemen penting di dalam setiap carousel
+    const track = carousel.querySelector('.flex.h-full');
+    const indicators = carousel.querySelectorAll('.menu-indicator');
+    const nextButton = carousel.querySelector('.next-slide');
+    const prevButton = carousel.querySelector('.prev-slide');
+    
+    // Jika tidak ada track atau hanya ada 1 gambar, hentikan proses untuk carousel ini
+    if (!track || track.children.length <= 1) {
+      return;
+    }
+    
+    // State (penyimpanan data) untuk setiap carousel
+    let currentIndex = 0;
+    const imageCount = track.children.length;
+    let autoplayInterval = null;
+
+    // --- FUNGSI UTAMA UNTUK MENGUPDATE TAMPILAN CAROUSEL ---
+    function updateCarousel(newIndex) {
+      // Hitung pergeseran
+      const offset = -newIndex * 100;
+      track.style.transform = `translateX(${offset}%)`;
+
+      // Update indikator
+      indicators[currentIndex].classList.remove('bg-white');
+      indicators[currentIndex].classList.add('bg-white/50');
+      indicators[newIndex].classList.add('bg-white');
+      indicators[newIndex].classList.remove('bg-white/50');
+
+      // Update indeks saat ini
+      currentIndex = newIndex;
+    }
+
+    // --- FUNGSI UNTUK NAVIGASI ---
+    function slide(direction) {
+      const newIndex = (currentIndex + direction + imageCount) % imageCount;
+      updateCarousel(newIndex);
+    }
+
+    // --- EVENT LISTENERS (PENANGANAN AKSI PENGGUNA) ---
+    nextButton.addEventListener('click', function() {
+      slide(1);
+    });
+
+    prevButton.addEventListener('click', function() {
+      slide(-1);
+    });
+
+    // --- LOGIKA AUTOPLAY ---
+    function startAutoplay() {
+      // Mulai autoplay hanya jika belum berjalan
+      if (!autoplayInterval) {
+        autoplayInterval = setInterval(function() {
+          slide(1);
+        }, 3000); // Ganti gambar setiap 3 detik
+      }
+    }
+
+    function stopAutoplay() {
+      clearInterval(autoplayInterval);
+      autoplayInterval = null;
+    }
+
+    // Jeda autoplay saat mouse masuk ke area carousel
+    carousel.addEventListener('mouseenter', stopAutoplay);
+    
+    // Lanjutkan autoplay saat mouse keluar dari area carousel
+    carousel.addEventListener('mouseleave', startAutoplay);
+    
+    // Mulai autoplay saat halaman dimuat
+    startAutoplay();
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+{% endblock %}

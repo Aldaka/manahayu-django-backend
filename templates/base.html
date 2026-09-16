@@ -1,0 +1,225 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+		{% tailwind_css %}
+	</head>
+
+	<body class="bg-gray-50 font-serif leading-normal tracking-normal">
+        <header class="fixed z-50 flex items-center justify-between px-6 py-4 font-semibold rounded-full shadow-lg font-primary top-4 left-4 right-4 text-secondary bg-primary">
+            {% comment %} <h1 class="text-lg font-semibold">
+                <a href="{% url 'home' %}"
+                    class="inline-block transition-colors transition-transform duration-300 hover:scale-105 hover:text-tiga">
+                    MANAHAYU HOLISTIC FARM
+                </a>
+            </h1> {% endcomment %}
+<h1 class="relative inline-block text-lg font-semibold overflow-hidden group">
+  <span class="relative z-10 block text-white transition-colors duration-500 group-hover:text-transparent">
+    <a href="{% url 'home' %}">MANAHAYU HOLISTIC FARM</a>
+  </span>
+  <span class="absolute inset-0 bg-gradient-to-r from-green-500 to-green-500 bg-[length:0%_100%] bg-left bg-no-repeat bg-clip-text text-transparent transition-all duration-500 group-hover:bg-[length:100%_100%]">
+    MANAHAYU HOLISTIC FARM
+  </span>
+</h1>
+{% comment %} <a href="{% url 'home' %}">
+    <img src="{% static 'img/manahayu.png' %}" alt="Logo Manahayu" class="block mx-auto w-16 sm:w-20 md:w-32 lg:w-48 xl:w-64 h-auto">
+</a> {% endcomment %}
+
+
+
+
+            <!-- Hamburger button -->
+            <button id="menu-btn" class="md:hidden focus:outline-none z-50">
+                <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" stroke-width="2"
+                  viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+          <!--Jangan Dihapus Main Nav-->
+          {% comment %} <nav class="hidden gap-6 text-sm md:flex ml-auto">
+            <a href="{% url 'home' %}" class="hover:text-tiga">Home</a>
+            <a href="{% url 'about_us' %}" class="hover:text-tiga">About Us</a>
+            <a href="{% url 'room' %}" class="hover:text-tiga">Room</a>
+            <a href="{% url 'menu' %}" class="hover:text-tiga">Menu</a>
+            <a href="{% url 'package' %}" class="hover:text-tiga">Package</a>
+            <a href="{% url 'contact' %}" class="hover:text-tiga">Contact</a>
+            </nav> {% endcomment %}
+            <!--Jangan Dihapus Main Nav-->
+            <nav class="hidden gap-6 text-sm md:flex ml-auto">
+            <a href="{% url 'home' %}" class="relative inline-block group overflow-hidden">
+                <span class="relative z-10 block text-white transition-colors duration-500 group-hover:text-transparent">Home</span>
+                <span class="absolute inset-0 text-transparent bg-gradient-to-r from-green-500 to-green-500 
+                bg-[length:0%_100%] bg-left bg-no-repeat bg-clip-text transition-all duration-500 group-hover:bg-[length:100%_100%]">Home</span>
+            </a>
+            <a href="{% url 'about_us' %}" class="relative inline-block group overflow-hidden">
+                <span class="relative z-10 block text-white transition-colors duration-500 group-hover:text-transparent">About Us</span>
+                <span class="absolute inset-0 text-transparent bg-gradient-to-r from-green-500 to-green-500 
+                bg-[length:0%_100%] bg-left bg-no-repeat bg-clip-text transition-all duration-500 group-hover:bg-[length:100%_100%]">About Us</span>
+            </a>
+            <a href="{% url 'room' %}" class="relative inline-block group overflow-hidden">
+                <span class="relative z-10 block text-white transition-colors duration-500 group-hover:text-transparent">Room</span>
+                <span class="absolute inset-0 text-transparent bg-gradient-to-r from-green-500 to-green-500 
+                bg-[length:0%_100%] bg-left bg-no-repeat bg-clip-text transition-all duration-500 group-hover:bg-[length:100%_100%]">Room</span>
+            </a>
+            <a href="{% url 'menu' %}" class="relative inline-block group overflow-hidden">
+                <span class="relative z-10 block text-white transition-colors duration-500 group-hover:text-transparent">Menu</span>
+                <span class="absolute inset-0 text-transparent bg-gradient-to-r from-green-500 to-green-500 
+                bg-[length:0%_100%] bg-left bg-no-repeat bg-clip-text transition-all duration-500 group-hover:bg-[length:100%_100%]">Menu</span>
+            </a>
+            <a href="{% url 'package' %}" class="relative inline-block group overflow-hidden">
+                <span class="relative z-10 block text-white transition-colors duration-500 group-hover:text-transparent">Package</span>
+                <span class="absolute inset-0 text-transparent bg-gradient-to-r from-green-500 to-green-500 
+                bg-[length:0%_100%] bg-left bg-no-repeat bg-clip-text transition-all duration-500 group-hover:bg-[length:100%_100%]">Package</span>
+            </a>
+            <a href="{% url 'contact' %}" class="relative inline-block group overflow-hidden">
+                <span class="relative z-10 block text-white transition-colors duration-500 group-hover:text-transparent">Contact</span>
+                <span class="absolute inset-0 text-transparent bg-gradient-to-r from-green-500 to-green-500 
+                bg-[length:0%_100%] bg-left bg-no-repeat bg-clip-text transition-all duration-500 group-hover:bg-[length:100%_100%]">Contact</span>
+            </a>
+            </nav>
+            
+          
+            <!-- Mobile Menu -->
+            <nav>
+                <ul id="nav-menu" class="absolute left-0 z-40 flex-col hidden w-full px-4 py-4 mt-2 space-y-2 shadow-md rounded-xl bg-white/90 backdrop-blur-md md:hidden top-full">
+                <li><a href="{% url 'home' %}" class="block py-2 font-bold transition text-tiga">Home</a></li>
+                <li><a href="{% url 'about_us' %}" class="block py-2 font-bold transition text-tiga">About Us</a></li>
+                <li><a href="{% url 'room' %}" class="block py-2 font-bold transition text-tiga">Room</a></li>
+                <li><a href="{% url 'menu' %}" class="block py-2 font-bold transition text-tiga">Menu</a></li>
+                <li><a href="{% url 'package' %}" class="block py-2 font-bold transition text-tiga">Package</a></li>
+                <li><a href="{% url 'contact' %}" class="block py-2 font-bold transition text-tiga">Contact</a></li>
+              </ul>
+            </nav>
+          </header>  
+		{% comment %} <div class="container mx-auto">
+			<section class="flex items-center justify-center h-screen">
+				<h1 class="text-5xl">This should be changing soon ❤️</h1>
+			</section>
+		</div> {% endcomment %}
+        <div>
+            {% block konten %}
+            {% endblock %}
+        </div>
+
+        
+	</body>
+    <footer class=" px-6 py-10 font-primary text-secondary bg-primary">
+        <div class="flex flex-col-reverse items-start justify-between max-w-6xl gap-10 px-12 mx-auto lg:flex-row">
+      
+            <!-- Kiri: Branding dan Info -->
+            <div class="lg:w-1/2">
+                <h3 class="mb-4 text-2xl font-bold">MANAHAYU</h3>
+                <p class="max-w-md mb-4 leading-relaxed">
+                    Discover tranquility at Ngopi a sanctuary for unwinding, where your evenings are perfected with relaxation and rich flavors.
+                </p>
+                <p class="mb-6 text-base leading-relaxed">
+                    Jl. Indrokilo, Giripurno, Kec. Bumiaji,<br />
+                    Kota Batu, Jawa Timur 65333
+                </p>
+                <div class="flex gap-4 text-2xl">
+                    <a href="https://www.facebook.com/dapurmanahayu/"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://youtu.be/3digh5TIT38?si=jS9_XepW0b-96ds6"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/dapurmanahayu/"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+      
+            <!-- Kanan: FAQ -->
+            <div class="w-full px-6 py-10 bg-white rounded-[20px] shadow-lg lg:w-1/2 text-primary">
+                <h4 class="mb-6 text-xl font-semibold text-center">FAQ</h4>
+                <div class="space-y-4">
+                    <!-- FAQ 1 -->
+                    <div class="pb-4 border-b">
+                        <button class="flex items-center justify-between w-full text-sm font-semibold text-left faq-toggle md:text-base">
+                            <span>What is Webflow and why is it the best website builder?</span>
+                            <span class="text-xl">+</span>
+                        </button>
+                        <div class="hidden mt-2 text-xs text-gray-600">
+                            Vitae congue eu consequat ac felis placerat vestibulum lectus mauris ultrices.
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ 2 -->
+                    <div class="pb-4 border-b">
+                        <button class="flex items-center justify-between w-full text-sm font-semibold text-left faq-toggle md:text-base">
+                            <span>What is your favorite template from BRIX Templates?</span>
+                            <span class="text-xl">+</span>
+                        </button>
+                        <div class="hidden mt-2 text-xs text-gray-600">
+                            BRIX Templates has a variety of templates that fit perfectly with our brand.
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ 3 -->
+                    <div class="pb-4 border-b">
+                        <button class="flex items-center justify-between w-full text-sm font-semibold text-left faq-toggle md:text-base">
+                            <span>What is your favorite template from BRIX Templates?</span>
+                            <span class="text-xl">+</span>
+                        </button>
+                        <div class="hidden mt-2 text-xs text-gray-600">
+                            BRIX Templates has a variety of templates that fit perfectly with our brand.
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ 4 -->
+                    <div class="pb-4 border-b">
+                        <button class="flex items-center justify-between w-full text-sm font-semibold text-left faq-toggle md:text-base">
+                            <span>What is your favorite template from BRIX Templates?</span>
+                            <span class="text-xl">+</span>
+                        </button>
+                        <div class="hidden mt-2 text-xs text-gray-600">
+                            BRIX Templates has a variety of templates that fit perfectly with our brand.
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ 5 -->
+                    <div class="pb-4 border-b">
+                        <button class="flex items-center justify-between w-full text-sm font-semibold text-left faq-toggle md:text-base">
+                            <span>What is your favorite template from BRIX Templates?</span>
+                            <span class="text-xl">+</span>
+                        </button>
+                        <div class="hidden mt-2 text-xs text-gray-600">
+                            BRIX Templates has a variety of templates that fit perfectly with our brand.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const swiper = new Swiper('.mySwiper', {
+            slidesPerView: 1, // 👈 Default: 1 slide untuk semua
+            spaceBetween: 16,
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                640: { slidesPerView: 1, spaceBetween: 16 },
+                768: { slidesPerView: 2, spaceBetween: 24 },
+                1024: { slidesPerView: 3, spaceBetween: 32 },
+            },
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+        });
+    });
+    </script>
+</html>

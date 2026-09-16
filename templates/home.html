@@ -1,0 +1,328 @@
+{% extends "base.html" %}
+{% load static tailwind_tags %}
+{% block konten %}
+<title>{{title}}</title>
+{% tailwind_css %}
+<style>
+/* Biar position: static supaya flex layout jalan */
+.swiper-button-next, .swiper-button-prev {
+  position: static;
+}
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 1.5rem;  /* Ukuran panah */
+  color: green;     /* Tailwind green-800 */
+}
+</style>
+<body class="overflow-x-hidden bg-white font-primary">
+
+    <!-- Header -->
+    <div id="header-container"></div>
+  
+    <!-- Hero Section -->
+    <section id="Hero" class="relative w-full h-screen overflow-hidden bg-cover bg-center rounded-br-[80px]">
+      <div class="absolute inset-0">
+        <img src="{% static 'img/hero image.jpg' %}" alt="hero-image" class="object-cover w-full h-full" />
+        <div class="absolute inset-0 bg-black/45"></div>
+      </div>
+      <div class="relative z-10 flex flex-col items-start justify-center h-full max-w-6xl px-6 mx-auto md:px-12 text-secondary">
+        <h2 class="mb-4 text-4xl font-bold leading-tight md:text-5xl font-secondary">
+          A sustainable farming<br>for our earth
+        </h2>
+        <p class="mb-6 text-sm font-semibold leading-relaxed md:text-base font-primary">
+          Lorem ipsum dolor sit amet consectetur adipiscing elit mattis et<br class="hidden md:block">
+          phasellus mollis sit aliquam sit nullam neque ultrices.
+        </p>
+        <div>
+          <a href="#">
+            <button class="inline-flex items-center px-8 py-3 text-white transition border border-white rounded-full bg-white/10 backdrop-blur-md hover:bg-white hover:text-amber-900">
+              Learn More
+            </button> 
+          </a>
+        </div>
+      </div>
+    </section>
+  
+    <!-- About Us Section -->
+    <section id="About us" class="px-6 py-16 md:px-20 md:py-24">
+      <div class="mx-auto max-w-7xl">
+        <div class="mb-12 text-center">
+          <p class="mb-2 text-sm text-empat">About us</p>
+          <h2 class="mb-4 text-3xl font-semibold font-secondary text-primary md:text-4xl">
+            Why We Are The Best
+          </h2>
+        </div>
+        <div class="flex flex-col-reverse items-center gap-12 md:grid md:grid-cols-2">
+          <div class="text-primary">
+            <p class="mb-6">
+              Lorem ipsum dolor sit amet consectetur. Scelerisque urna vel sit dolor fringilla volutpat lectus amet.
+              Integer sed pretium odio lacus at malesuada est eget nunc. Viverra malesuada viverra id vel tortor dui adipiscing.
+            </p>
+            <p class="mb-6">
+              Lorem ipsum dolor sit amet consectetur. Scelerisque urna vel sit dolor fringilla volutpat lectus amet.
+              Integer sed pretium odio lacus at malesuada est eget nunc.
+            </p>
+            <p class="mb-8">
+              Lorem ipsum dolor sit amet consectetur. Scelerisque urna vel sit dolor fringilla volutpat lectus amet.
+            </p>
+            <a href="{% url 'about_us' %}">
+              <button class="inline-flex items-center bg-secondary text-white text-lg font-medium rounded-tr-[32px] rounded-bl-[32px] rounded-tl-[3px] rounded-br-[3px] px-8 py-3 hover:scale-105 transition">
+                Read More
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  fill="none" 
+                  viewBox="0 0 24 24" 
+                  stroke-width="1.5" 
+                  stroke="currentColor" 
+                  class="size-5 w-5 h-5 font-bold">
+                      <path 
+                      stroke-linecap="round" 
+                      stroke-linejoin="round" 
+                      d="m4.5 4.5 15 15m0 0V8.25m0 11.25H8.25" />
+                  </svg>
+              </button>
+            </a>
+          </div>
+  
+          <div class="flex flex-col w-full gap-6 sm:flex-row sm:justify-center">
+            <img src="https://png.pngtree.com/thumb_back/fh260/background/20210911/pngtree-coffee-drink-coffee-beans-scattered-on-the-table-image_857185.jpg"
+              alt="coffee1"
+              class="object-cover w-full sm:w-1/2 h-64 md:h-72 rounded-bl-[60px] rounded-br-[5px] rounded-tl-[5px] rounded-tr-[60px] transition-transform duration-300 hover:scale-105 sm:-translate-y-4 shadow-md" />
+              <img src="{% static 'img/kopicangkir.jpg' %}"
+              alt="coffee2"
+              class="object-cover w-full sm:w-1/2 h-64 md:h-72 rounded-br-[60px] rounded-bl-[5px] rounded-tr-[5px] rounded-tl-[60px] transition-transform duration-300 hover:scale-105 sm:translate-y-4 shadow-md" />
+              </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Room Section -->
+    <section id="Room" class="px-6 py-16 bg-white md:px-20 md:py-24">
+      <div class="mx-auto text-center max-w-7xl">
+        <p class="mb-2 text-sm text-empat">Room</p>
+        <h2 class="mb-4 text-3xl font-semibold font-secondary text-primary md:text-4xl">
+          Wake Up to Paradise Views
+        </h2>
+        <p class="mb-8 text-primary-500">
+          Discover tranquility at Ngopi a sanctuary for unwinding,<br class="hidden md:block">
+          where your evenings are perfected with relaxation and rich flavors.
+        </p>
+        <a href="{% url 'room' %}">
+          <button class="inline-flex items-center bg-secondary text-white text-lg font-medium rounded-tr-[32px] rounded-bl-[32px] rounded-tl-[3px] rounded-br-[3px] px-8 py-3 hover:scale-105 transition mb-8">
+            Read More
+            <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  fill="none" 
+                  viewBox="0 0 24 24" 
+                  stroke-width="1.5" 
+                  stroke="currentColor" 
+                  class="size-5 w-5 h-5 font-bold">
+                      <path 
+                      stroke-linecap="round" 
+                      stroke-linejoin="round" 
+                      d="m4.5 4.5 15 15m0 0V8.25m0 11.25H8.25" />
+                  </svg>
+          </button>
+        </a>
+  
+        {% comment %} <div class="flex flex-wrap justify-center gap-5 mt-10">
+          {% for room in rooms %}
+            {% for image in room.images.all %}
+              <img src="{{ image.image.url }}" 
+                   alt="room image for {{ room.name }}" 
+                   class="{% cycle 'object-cover w-40 h-72 rounded-bl-[60px] rounded-br-[5px] rounded-tr-[60px] rounded-tl-[5px] transition-transform duration-300 shadow-md' 'object-cover w-40 h-72 rounded-br-[60px] rounded-bl-[5px] rounded-tl-[60px] rounded-tr-[5px] transition-transform duration-300 shadow-md' %}">
+            {% empty %}
+              {# Blok ini akan dieksekusi jika room.images.all kosong untuk sebuah room #}
+              {# Anda mungkin ingin menampilkan placeholder dengan kelas default jika tidak ada gambar #}
+              <img class="object-cover w-40 h-72 rounded-bl-[60px] rounded-br-[5px] rounded-tr-[60px] rounded-tl-[5px] transition-transform duration-300 shadow-md' 'object-cover w-40 h-72 rounded-br-[60px] rounded-bl-[5px] rounded-tl-[60px] rounded-tr-[5px] transition-transform duration-300 shadow-md" src="{% static 'img/placeholder_image.jpg' %}" 
+                   class="flex-shrink-0 object-cover w-full h-full" 
+                   alt="no image available for {{ room.name }}" />
+            {% endfor %}
+          {% endfor %}
+        </div> {% endcomment %}
+        <div class="flex flex-wrap justify-center gap-5 mt-10">
+          {% for room in rooms %}
+            {% with first_image=room.images.first %}
+              {% if first_image and first_image.image %}
+              <img src="{{ first_image.image.url }}" 
+                  alt="room image for {{ room.name }}" 
+                  class="object-cover w-40 h-72 rounded-bl-[60px] rounded-br-[5px] rounded-tr-[60px] rounded-tl-[5px] transition-transform duration-300 shadow-md hover:scale-105">
+              {% else %}
+                <!-- Jika tidak ada gambar, tampilkan gambar placeholder -->
+                <img src="{% static 'img/placeholder_image.jpg' %}" 
+                    alt="no image available for {{ room.name }}" 
+                    class="object-cover w-40 h-72 rounded-bl-[60px] rounded-br-[5px] rounded-tr-[60px] rounded-tl-[5px] transition-transform duration-300 shadow-md hover:scale-105">
+              {% endif %}
+            {% endwith %}
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+  
+    <!-- Menu Section -->
+    <section id="Menu" class="px-6 py-16 bg-white md:px-20 md:py-24">
+    <div class="mx-auto text-center max-w-7xl">
+        <p class="mb-2 text-sm text-empat font-primary">Menu</p>
+        <h2 class="mb-4 text-3xl font-semibold font-secondary text-primary md:text-4xl">
+            From Top Quality Materials
+        </h2>
+        <p class="max-w-3xl mx-auto mb-10 text-base text-primary font-primary">
+            Enjoy our carefully curated menu with ingredients from sustainable farming,<br class="hidden md:block">
+            crafted with care to delight your senses.
+        </p>
+        <section id="image">
+            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                {% for item in menus %}
+                <div class="flex flex-col overflow-hidden rounded-tr-[60px] rounded-tl-[5px] rounded-b-[5px] outline-1 outline-gray-300 transition-transform duration-300 shadow-md hover:scale-105 ">
+                    {# Cek apakah ada gambar untuk item menu ini #}
+                    {% if item.images.all %}
+                        {# Ambil gambar pertama jika ada, atau loop jika Anda ingin menampilkan semua gambar #}
+                        {% with first_image=item.images.first %}
+                            {% if first_image and first_image.image %}
+                                <img src="{{ first_image.image.url }}" alt="{{ item.name }}" class="object-cover rounded-tr-[60px] rounded-bl-[60px] w-full h-56" />
+                            {% else %}
+                                <img src="{% static 'img/placeholder_menu.jpg' %}" alt="No image available for {{ item.name }}" class="object-cover rounded-tr-[60px] rounded-bl-[60px] w-full h-56" />
+                            {% endif %}
+                        {% endwith %}
+                    {% else %}
+                        {# Placeholder jika tidak ada gambar sama sekali untuk item ini (redundant but safe) #}
+                        <img src="{% static 'img/placeholder_image.jpg' %}" alt="No image available for {{ item.name }}" class="object-cover rounded-tr-[60px] rounded-bl-[60px] w-full h-56" />
+                    {% endif %}
+
+                    <div class="flex flex-col justify-between flex-1 p-5 text-primary font-primary">
+                        <div>
+                            <h3 class="mb-2 text-lg font-semibold text-left">{{ item.name }}</h3> {# Menggunakan item.name #}
+                            <p class="text-sm text-left leading-relaxed">
+                                {{ item.description }} {# Menggunakan item.description #}
+                            </p>
+                        </div>
+                        <div class="flex items-center justify-between mt-4">
+                            <p class="text-base font-bold">Rp. {{ item.price|floatformat:0 }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+    </div>
+</section>
+  
+    <!-- Testimoni -->
+    <section id="Testimoni" class="px-6 py-16 bg-white md:px-20 md:py-24">
+      <div class="mx-auto text-center max-w-7xl">
+        <p class="mb-2 text-sm text-gray-400 font-primary">Testimonial</p>
+        <h2 class="mb-10 text-3xl font-semibold text-gray-800 font-secondary md:text-4xl">
+          What our buyers say
+        </h2>
+
+        {% comment %} <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {% for review in reviews %}
+              <div class="bg-white p-6 rounded-lg shadow mb-4">
+                  <h2 class="text-xl font-semibold">{{ review.name }}</h2>
+                  <p class="text-yellow-500">Rating: {{ review.rating }}★</p>
+                  <p class="mt-2">{{ review.content|truncatechars:150 }}</p>
+              </div>
+          {% empty %}
+              <p>Belum ada ulasan.</p>
+          {% endfor %}
+        </div> {% endcomment %}
+
+
+ {% comment %} <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+  {% for review in reviews %}
+    <div class="p-6 shadow-md outline-1 outline-gray-300 outline-solid rounded-xl font-primary">
+      <div class="flex items-center gap-4 mb-4">
+        <div class="text-left">
+          <!-- Nama pengulas -->
+          <p class="font-semibold text-gray-800">{{ review.name }}</p>
+          
+          <!-- Rating bintang -->
+          <div class="text-sm">
+            <!-- Menampilkan bintang penuh (★) menggunakan warna kuning -->
+            {% for i in review.stars_full %}
+              <span class="text-yellow-500">★</span>  <!-- Bintang penuh berwarna kuning -->
+            {% endfor %}
+            <!-- Menampilkan bintang kosong (☆) menggunakan warna abu-abu -->
+            {% for i in review.stars_empty %}
+              <span class="text-yellow-500">☆</span>  <!-- Bintang kosong berwarna abu-abu -->
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <!-- Konten review -->
+      <p class="text-sm text-left text-gray-600">
+        {{ review.content|truncatechars:150 }}
+      </p>
+    </div>
+  {% empty %}
+    <p class="text-center text-gray-500">No reviews available.</p>
+  {% endfor %}
+</div> {% endcomment %}
+
+
+
+<!-- Container wrapper flex -->
+<div class="relative flex items-center justify-center w-full max-w-7xl mx-auto ">
+  <div class="swiper-button-prev relative z-10 text-gray-800 hover:text-primary transition"></div>
+
+  <!-- Swiper -->
+  <div class="swiper mySwiper w-full px-4 ">
+    <div class="swiper-wrapper ">
+      {% for review in reviews %}
+      <div class="swiper-slide ">
+        <div class="p-6 shadow-md rounded-xl border border-gray-200 bg-white">
+          <p class="mb-2 font-semibold text-gray-800">{{ review.name }}</p>
+          <div class="mb-2">
+            {% for i in review.stars_full %}
+              <span class="text-yellow-500">★</span>
+            {% endfor %}
+            {% for i in review.stars_empty %}
+              <span class="text-yellow-500">☆</span>
+            {% endfor %}
+          </div>
+          <p class="text-sm text-gray-600">{{ review.content|truncatechars:150 }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="swiper-button-next relative z-10 text-gray-800 hover:text-primary transition"></div>
+</div>
+
+
+
+
+      </div>
+
+    </section>
+  
+    <!-- Contact   -->
+    <section class="bg-secondary px-6 py-10 md:px-20 md:py-20 rounded-tr-[80px]">
+      <div class="flex flex-col-reverse items-center justify-between gap-10 mx-auto lg:flex-row">
+        <div class="w-full lg:w-1/2">
+          <img src="{% static 'img/hero image.jpg' %}" alt="Farmer"
+            class="w-full h-auto max-h-[360px] rounded-tl-[90px] rounded-tr-[5px] rounded-br-[90px] rounded-bl-[5px] object-cover mx-auto" />
+        </div>
+        <div class="w-full text-center text-white lg:w-1/2 lg:text-left">
+          <h3 class="mb-4 text-2xl font-bold leading-snug md:text-4xl">
+            Keep our quality with the<br />
+            best farmers
+          </h3>
+          <p class="max-w-md mx-auto mb-6 text-base md:text-lg lg:mx-0">
+            Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit
+            phasellus mollis sit aliquam sit nullam.
+          </p>
+          <a href="{% url 'contact' %}">
+            <button class="inline-flex items-center px-8 py-3 text-white transition border border-white rounded-full bg-white/10 backdrop-blur-md hover:bg-white hover:text-amber-900">
+              Contact Us
+            </button>
+          </a>
+        </div>
+      </div>
+    </section>
+    
+    <div id="footer-container"></div>
+    {% comment %} <script src="{% static 'js/main.js' %}"></script> {% endcomment %}
+  </body>
+{% endblock %}
