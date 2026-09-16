@@ -1,0 +1,17 @@
+asgiref==3.9.1
+certifi==2025.7.9
+charset-normalizer==3.4.2
+diff-match-patch==20241021
+Django==5.2.4
+django-browser-reload==1.18.0
+django-import-export==4.3.8
+django-tailwind==4.2.0
+django-unfold==0.62.0
+google_search_results==2.4.2
+idna==3.10
+pillow==11.3.0
+requests==2.32.4
+sqlparse==0.5.3
+tablib==3.8.0
+tzdata==2025.2
+urllib3==2.5.0
